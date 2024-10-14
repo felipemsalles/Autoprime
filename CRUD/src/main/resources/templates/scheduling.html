@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+	<title>Agendamento</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/bootstrap/css/bootstrap.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/bootstrap/css/bootstrap.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/animate/animate.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/css-hamburgers/hamburgers.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/animsition/css/animsition.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/select2/select2.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{vendor/daterangepicker/daterangepicker.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/main.css}">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="#" th:action="@{/agendar}"
+					method="post" th:object="${agendamento}">
+					<span class="login100-form-title">
+						Faça um novo agendamento.
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-16"
+						data-validate="Por favor escreva o modelo do carro.">
+						<select ip="veiculo" class="input100-select" type="text" name="veiculo" th:field="*{veiculo}"
+							placeholder="Por favor escreva o modelo do carro.">
+							<datalist id="opcoes">
+								<option value="" selected disabled hidden>Escolha o veículo desejado</option>
+								<option th:each="option : ${opcoes}" th:value="${option.id}" th:text="${option}"></option>
+							</datalist>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16">
+						<select name="tipo" class="input100-select"
+							id="tipo" th:field="*{tipo}" required>
+							<option value="" selected disabled hidden>Escolha o tipo da manutenção</option>
+							<option value="Manutencao">Manutenção</option>
+							<option value="TestDrive">Test-Drive</option>
+						</select>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16">
+						<input id="data" name="data" type="date" class="input100" th:field="*{data}">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<label class="input100-label">Comentários adicionais:</label>
+						<textarea id="info" name="info" rows="5" cols="33" class="input100"
+							style="height:150px; padding-top: 10px;" th:field="*{info}">
+						</textarea>
+					</div>
+
+					<br>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Agendar
+						</button>
+					</div>
+
+					<br>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<title>Compra</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="#" th:action="@{/compra/edit/{id}}"
+				method="post" th:object="${compra}">
+					<span class="login100-form-title">
+						Edite a compra
+					</span>
+
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Insira a id">
+						<label class="input100-label">Id:</label>
+						<input class="input100" type="number" name="id" placeholder="id" id="id" th:field="*{id}" th:value="${compra.id}">
+						<span class="focus-input100"></span>
+					</div>
+
+						
+					<div class="wrap-input100 validate-input m-b-16"
+						data-validate="Por favor escreva o modelo do carro.">
+						<select ip="veiculo" class="input100-select" type="text" name="veiculo" th:field="*{veiculo}"
+							placeholder="Por favor escreva o modelo do carro." th:value="${compra.veiculo}">
+							<datalist id="veiculo">
+								<option value="" selected disabled hidden>Escolha o veículo desejado</option>
+								<option th:value="${veiculo.id}" th:text="${veiculo}"></option>
+							</datalist>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input m-b-16"
+						data-validate="Por favor escreva o nome do cliente.">
+						<select ip="cliente" class="input100-select" type="text" name="cliente" th:field="*{cliente}"
+							placeholder="Por favor escreva o nome do cliente." th:value="${compra.cliente}">
+							<datalist id="cliente">
+								<option value="" selected disabled hidden>Escolha o cliente</option>
+								<option th:value="${cliente.cpf}" th:text="${cliente.nome}"></option>
+							</datalist>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Insira a data">
+						<label class="input100-label">Data:</label>
+						<input class="input100" type="date" name="data" placeholder="01/10/2009" id="data" th:field="*{data}" th:value="${compra.data}">
+						<span class="focus-input100"></span>
+					</div>
+					
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Insira o valor">
+						<label class="input100-label">Valor:</label>
+						<input class="input100" type="number" name="valor" placeholder="00.00" step="any" id="valor" th:field="*{valor}" th:value="${compra.valor}">
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Insira o desconto">
+						<label class="input100-label">Desconto:</label>
+						<input class="input100" type="number" name="desconto" placeholder="00.00" step="any" id="desconto" th:field="*{desconto}" th:value="${compra.desconto}">
+						<span class="focus-input100"></span>
+					</div>
+
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Insira o status">
+						<label class="input100-label">Status:</label>
+						<input class="input100" type="text" name="status" placeholder="Confirmada" id="status" th:field="*{status}" th:value="${compra.status}">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Salvar
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

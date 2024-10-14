@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<title>Funcionário</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="#" th:action="@{/funcionario/list}"
+				method="post" th:object="${clientes}">
+					<span class="login100-form-title">
+						Funcionário
+					</span>
+
+
+					<div class="wrap-input100 validate-input m-b-16" th:each="funcionario : ${funcionarios}" ip="funcionario" display:inline>
+						<h1  th:text="'CPF: ' + ${funcionario.cpf}" class="input100" name="funcionario"></h1>
+						<h1  th:text="'Nome: ' + ${funcionario.nome}" class="input100" name="funcionario"></h1>
+						<h1  th:text="'Email: ' + ${funcionario.email}" class="input100" name="funcionario"></h1>
+						<h1  th:text="'Telefone: ' + ${funcionario.telefone}" class="input100" name="funcionario"></h1>
+						<h1  th:text="'Cargo: ' + ${funcionario.cargo}" class="input100" name="funcionario"></h1>
+						<h1  th:text="'Salario: ' + ${funcionario.salario}" class="input100" name="funcionario"></h1>
+						<h1  th:text="'Data de Nascimento: ' + ${#temporals.format(funcionario.dataDeNascimento, 'dd/MM/yyyy')}" class="input100" name="funcionario"></h1>
+						<a th:href="@{delete/{cpf}(cpf=${funcionario.cpf})}"> 
+							Deletar
+					    </a>
+						<a th:href="@{edit/{cpf}(cpf=${funcionario.cpf})}"> 
+							Editar
+					    </a>
+						<span class="focus-input100"></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

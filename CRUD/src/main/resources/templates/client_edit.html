@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<title>Cliente</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="#" th:action="@{/cliente/edit/{cpf}}"
+				method="post" th:object="${cliente}">
+					<span class="login100-form-title">
+						Edite o cliente
+					</span>
+
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Insira o nome">
+						<label class="input100-label">Nome:</label>
+						<input class="input100" type="text" name="nome" placeholder="nome" id="nome" th:field="*{nome}" th:value="${cliente.nome}">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Insira o CPF">
+						<label class="input100-label">CPF:</label>
+						<input class="input100" type="text" name="cpf" placeholder="cpf" id="cpf" th:field="*{cpf}" th:value="${cliente.cpf}">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Insira o email">
+						<label class="input100-label">Email:</label>
+						<input class="input100" type="text" name="email" placeholder="email" id="email" th:field="*{email}" th:value="${cliente.email}">
+						<span class="focus-input100"></span>
+					</div>
+					
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Insira o telefone">
+						<label class="input100-label">Telefone:</label>
+						<input class="input100" type="number" name="telefone" placeholder="00.00" step="any"id="telefone" th:field="*{telefone}" th:value="${cliente.telefone}">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Insira a data de nascimento">
+						<label class="input100-label">Data de Nascimento:</label>
+						<input class="input100" type="date" name="dataDeNascimento" required placeholder="${cliente.dataDeNascimento}" id="dataDeNascimento" th:field="*{dataDeNascimento}" th:value="${cliente.dataDeNascimento}">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Insira a senha">
+						<label class="input100-label">Senha:</label>
+						<input class="input100" type="text" name="senha" placeholder="senha" id="senha" th:field="*{senha}" th:value="${cliente.senha}">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Salvar
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
